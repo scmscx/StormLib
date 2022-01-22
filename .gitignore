@@ -165,3 +165,12 @@ pip-log.txt
 .DS_Store
 **/project.xcworkspace
 **/xcuserdata
+
+# build artifacts
+CMakeCache.txt
+CMakeFiles/
+CPackConfig.cmake
+CPackSourceConfig.cmake
+Makefile
+cmake_install.cmake
+libstorm.a

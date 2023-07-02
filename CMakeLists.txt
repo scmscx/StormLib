@@ -303,21 +303,8 @@ set(TEST_SRC_FILES
 add_definitions(-D_7ZIP_ST -DBZ_STRICT_ANSI)
 set(LINK_LIBS)
 
-find_package(ZLIB)
-if (ZLIB_FOUND AND NOT STORM_USE_BUNDLED_LIBRARIES)
-	set(LINK_LIBS ${LINK_LIBS} ZLIB::ZLIB)
-    add_definitions(-D__SYS_ZLIB)
-else()
-	set(SRC_FILES ${SRC_FILES} ${ZLIB_FILES})
-endif()
-
-find_package(BZip2)
-if (BZIP2_FOUND AND NOT STORM_USE_BUNDLED_LIBRARIES)
-	set(LINK_LIBS ${LINK_LIBS} BZip2::BZip2)
-    add_definitions(-D__SYS_BZLIB)
-else()
-	set(SRC_FILES ${SRC_FILES} ${BZIP2_FILES})
-endif()
+set(SRC_FILES ${SRC_FILES} ${ZLIB_FILES})
+set(SRC_FILES ${SRC_FILES} ${BZIP2_FILES})
 
 if(WIN32)
     set(SRC_ADDITIONAL_FILES ${TOMCRYPT_FILES} ${TOMMATH_FILES})
